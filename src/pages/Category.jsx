@@ -29,7 +29,7 @@ const Category = () => {
         //Create a query
         const q = query(
           listingsRef,
-          where("type", "==", params.categoryName),
+          where("type", "==", params.categoryName), //Taken from App.js <Route path="/category/:categoryName" element={<Category />} />
           orderBy("timestamp", "desc"),
           limit(10)
         );
