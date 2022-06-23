@@ -31,7 +31,7 @@ const Explore = () => {
               alt="sell"
               className="exploreCategoryImg"
             />
-            <div className="exploreCategoryName">Places for sale</div>
+            <p className="exploreCategoryName">Places for sale</p>
           </Link>
         </div>
       </main>

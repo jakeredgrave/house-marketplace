@@ -52,26 +52,30 @@ function Slider() {
           pagination={{ clickable: true }}
           style={{ height: "30vh" }}
         >
-          {listings.map(({ data, id }) => (
-            <SwiperSlide
-              key={id}
-              onClick={() => navigate(`/category/${data.type}/${id}`)}
-            >
-              <div
-                style={{
-                  background: `url(${data.imgUrls[0]}) center no-repeat`,
-                  backgroundSize: "cover",
-                }}
-                className="swiperSlideDiv"
+          {listings.map(
+            (
+              { data, id } //listing object destructurized from linstings array
+            ) => (
+              <SwiperSlide
+                key={id}
+                onClick={() => navigate(`/category/${data.type}/${id}`)}
               >
-                <p className="swiperSlideText">{data.name}</p>
-                <p className="swiperSlidePrice">
-                  ${data.discountedPrice ?? data.regularPrice}{" "}
-                  {data.type === "rent" && "/ month"}
-                </p>
-              </div>
-            </SwiperSlide>
-          ))}
+                <div
+                  style={{
+                    background: `url(${data.imgUrls[0]}) center no-repeat`,
+                    backgroundSize: "cover",
+                  }}
+                  className="swiperSlideDiv"
+                >
+                  <p className="swiperSlideText">{data.name}</p>
+                  <p className="swiperSlidePrice">
+                    ${data.discountedPrice ?? data.regularPrice}{" "}
+                    {data.type === "rent" && "/ month"}
+                  </p>
+                </div>
+              </SwiperSlide>
+            )
+          )}
         </Swiper>
       </>
     )
